@@ -13,7 +13,7 @@ class Computer {
     private bool $mouse;
     private int $memory;
     // Propriétaire
-    private $owner;
+    private User $owner;
 
     /**
      * Computer constructor.
@@ -183,4 +183,19 @@ class Computer {
         echo $this->getBrand()." sleeping... <br>";
     }
 
+    /**
+     * Set the computer's owener
+     * @param User $user
+     */
+    public function setOwner(User $user) {
+        $this->owner = $user;
+    }
+
+    /**
+     * Return the computer's owner
+     * @return User
+     */
+    public function getOwner(): User {
+        return $this->owner;
+    }
 }

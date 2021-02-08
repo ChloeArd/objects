@@ -14,6 +14,10 @@ class User {
         $this->setPassword($password);
     }
 
+    public function __toString(): string {
+        return $this->getUsername()."<br>".$this->getPassword();
+    }
+
     /**
      * @return mixed
      */
@@ -43,6 +47,9 @@ class User {
      */
     public function setPassword($password): void
     {
+        if (strlen($password) > 0) {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+        }
         $this->password = $password;
     }
 
